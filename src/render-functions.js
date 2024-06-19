@@ -20,7 +20,30 @@ export const renderBookList = (bookListEl, books) => {
 }
 
 export const renderAuthorInfo = (authorInfoEl, author) => {
-}
+ 
+  authorInfoEl.innerHTML = ''
+
+  const h2 = document.createElement('h2')
+  const img = document.createElement('img')
+  const bornParagraph = document.createElement('p')
+  const bioParagraph = document.createElement('p')
+  const wikipediaLink = document.createElement('a')
+
+  h2.textContent = author.name
+  
+  img.src = author.pictureUrl
+  img.alt = `A picture of ${author.name}`
+
+  bornParagraph.textContent = `Born: ${author.birthDate}`
+
+  bioParagraph.textContent = author.bio
+
+  wikipediaLink.href = author.wikipediaUrl
+  wikipediaLink.textContent = 'Wikipedia Link'
+
+  authorInfoEl.append(h2, img, bornParagraph, bioParagraph, wikipediaLink)
+};
+
 
 export const renderNewUserForm = (newUserFormEl) => {
 }
