@@ -24,8 +24,36 @@ export const getFirstThreeFantasyBooks = async () => {
 };
 
 
-export const getAuthor = () => {
+export const getAuthor = async (urlKey) => {
+  const baseURL = 'https://openlibrary.org'
+  const url = `${baseURL}${urlKey}.json`
+
+  try {
+    const response = await fetch(url)
+
+    if (!response.ok) {
+      throw new Error('Failed to get author')
+    }
+
+    const data = await response.json()
+
+    const formattedAuthor = {
+      birthDate: data.birth_date,
+      bio: data.bio,
+      wikipediaUrl: data.wikipedia,
+      name: data.name,
+      pictureUrl: data.photos ? `https://covers.openlibrary.org/a/id/${data.photos[0]}-M.jpg` : null,
+    };
+    return formattedAuthor
+
+  } catch (error) {
+    console.warn('Network Error');
+    console.warn('Failed to get author');
+    console.warn(error)
+    return null;
+  }
 };
+
 
 export const createNewUser = () => {
 }
