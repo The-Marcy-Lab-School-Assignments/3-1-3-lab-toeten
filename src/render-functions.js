@@ -46,7 +46,6 @@ export const renderAuthorInfo = (authorInfoEl, author) => {
 
 
 export const renderNewUserForm = (newUserFormEl) => {
-  newUserFormEl.innerHTML=''
   newUserFormEl.innerHTML = `
   <label for="username">Username</label>
   <input type="text" id="username" name="username">
@@ -67,4 +66,17 @@ export const renderNewUserForm = (newUserFormEl) => {
 }
 
 export const renderNewUser = (newUserEl, newUser) => {
+  newUserEl.innerHTML=''
+  const username = document.createElement('h2')
+  const isCoolP = document.createElement('p')
+  const languageP = document.createElement('p')
+
+  username.textContent = newUser.username
+  username.dataset.userId = newUser.id
+
+  isCoolP.textContent = newUser.isCool ? 'The hippest in the house!' : 'A real square.'
+
+  languageP.textContent = `Favorite Language: ${newUser.favoriteLanguage}`
+
+  newUserEl.append(username, isCoolP, languageP)
 }

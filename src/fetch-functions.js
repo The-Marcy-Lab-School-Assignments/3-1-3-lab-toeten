@@ -47,10 +47,11 @@ export const getAuthor = async (urlKey) => {
     return formattedAuthor
 
   } catch (error) {
-    console.warn('Network Error');
-    console.warn('Failed to get author');
-    console.warn(error)
-    return null;
+    console.warn(`Failed to get author: ${error.message}`)
+    if (error instanceof TypeError && error.message.includes('NetworkError')) {
+      console.warn('Network Error occurred');
+    }
+    return null
   }
 };
 

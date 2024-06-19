@@ -54,5 +54,19 @@ export default async function app(appDiv) {
 
  
 
-  // newUserFormEl.addEventListener('???', () => {})
+  newUserFormEl.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    const formData = new FormData(newUserFormEl)
+    const newUser = {
+      username: formData.get('username'),
+      isCool: formData.get('isCool') === 'on',
+      favoriteLanguage: formData.get('favoriteLanguage')
+    }
+    try {
+      const createdUser = await createNewUser(newUser)
+      renderNewUser(newUserEl, createdUser)
+    } catch (error) {
+      console.warn(error)
+    }
+  })
 }
