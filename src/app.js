@@ -48,11 +48,11 @@ export default async function app(appDiv) {
   const newUserFormEl = document.createElement('form');
   newUserFormEl.id = 'new-user-form';
   appDiv.append(newUserFormEl);
-  // Render the form!
-  // renderNewUserForm;
+  
+  renderNewUserForm(newUserFormEl)
 
 
-  // bookListEl.addEventListener('???', () => {})
+ 
 
   // newUserFormEl.addEventListener('???', () => {})
 }

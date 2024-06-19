@@ -46,6 +46,24 @@ export const renderAuthorInfo = (authorInfoEl, author) => {
 
 
 export const renderNewUserForm = (newUserFormEl) => {
+  newUserFormEl.innerHTML=''
+  newUserFormEl.innerHTML = `
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username">
+
+  <label for="is-cool">Is this user cool?</label>
+  <input type="checkbox" id="is-cool" name="isCool">
+
+  <label for="favorite-language">Favorite Language</label>
+  <select id="favorite-language" name="favoriteLanguage">
+    <option value="None">None</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="Python">Python</option>
+    <option value="Ruby">Ruby</option>
+  </select>
+
+  <button type="submit">Create User</button>
+`
 }
 
 export const renderNewUser = (newUserEl, newUser) => {
