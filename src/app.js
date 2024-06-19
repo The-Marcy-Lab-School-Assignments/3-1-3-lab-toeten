@@ -20,19 +20,19 @@ export default async function app(appDiv) {
     renderBookList(bookListEl, books)
     bookListEl.addEventListener('click', async (event) => {
       if (event.target.tagName === 'BUTTON') {
-        const urlKey = event.target.dataset.authorUrlKey;
+        const urlKey = event.target.dataset.authorUrlKey
         try {
-          const author = await getAuthor(urlKey);
+          const author = await getAuthor(urlKey)
           if (author) {
-            renderAuthorInfo(authorInfoEl, author);
+            renderAuthorInfo(authorInfoEl, author)
           } else {
-            console.warn('Failed to get author data.');
+            console.warn('Failed to get author data.')
           }
           } catch (error) {
-            console.error('Error fetching author data:', error);
+            console.error('Error fetching author data:', error)
           }
         }
-      });
+      })
   } catch (error) {
     console.log(error)
   }
