@@ -29,7 +29,7 @@ export default async function app(appDiv) {
   // Render the form!
   // renderNewUserForm;
 
-  // Fetch the books!
+  //console.log(getFirstThreeFantasyBooks())
   // const books =
   // render out the books
   // renderBookList
