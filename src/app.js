@@ -15,6 +15,13 @@ export default async function app(appDiv) {
   bookListEl.id = 'book-list';
   appDiv.append(bookListEl);
 
+  try {
+    const books = await getFirstThreeFantasyBooks()
+    renderBookList(bookListEl, books)
+  } catch (error) {
+    console.log(error)
+  }
+  
   const authorInfoEl = document.createElement('div');
   authorInfoEl.id = 'author-info';
   appDiv.append(authorInfoEl);
@@ -29,10 +36,6 @@ export default async function app(appDiv) {
   // Render the form!
   // renderNewUserForm;
 
-  //console.log(getFirstThreeFantasyBooks())
-  // const books =
-  // render out the books
-  // renderBookList
 
   // bookListEl.addEventListener('???', () => {})
 
