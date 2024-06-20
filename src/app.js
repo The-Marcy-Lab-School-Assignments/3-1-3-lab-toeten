@@ -62,6 +62,7 @@ export default async function app(appDiv) {
       isCool: formData.get('isCool') === 'on',
       favoriteLanguage: formData.get('favoriteLanguage')
     }
+    newUserFormEl.reset()
     try {
       const createdUser = await createNewUser(newUser)
       renderNewUser(newUserEl, createdUser)
