@@ -73,6 +73,10 @@ export const createNewUser = async (newUserData) => {
     }
     const data = await response.json();
     return { ...data, id: 11 }
+    /*
+    FEEDBACK: 
+      Great job on this! However, the instructions mentions not to hard code the id, so you were supposed to just return data. Asides from that, great job! 
+    */
   } catch (error) {
     console.warn(error)
     return null

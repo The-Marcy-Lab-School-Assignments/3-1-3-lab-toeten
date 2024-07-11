@@ -62,6 +62,12 @@ export default async function app(appDiv) {
       isCool: formData.get('isCool') === 'on',
       favoriteLanguage: formData.get('favoriteLanguage')
     }
+    /*
+    FEEDBACK:
+      Interesting solution! Just wanted to point out that doing
+      `const newUser = Object.fromEntries(formData);`
+      achieves the same effect, for future reference!
+    */
     newUserFormEl.reset()
     try {
       const createdUser = await createNewUser(newUser)
